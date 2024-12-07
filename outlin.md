@@ -22,3 +22,6 @@ blog:
 
 contnct:
 login:
+
+
+home
