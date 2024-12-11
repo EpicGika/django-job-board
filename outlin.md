@@ -21,7 +21,9 @@ blog:
     - search_bar
 
 contnct:
+home:
+
 login:
 
 
-home
+
