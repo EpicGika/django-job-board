@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Job
 from django.core.paginator import Paginator
-
+from .forms import ApplyForm 
 
 
 # class JobListView(ListView):
@@ -25,7 +25,18 @@ def job_list(request):
     jobs = {'jobs' : page_obj}
     return render(request, 'job/job_list.html', jobs)
 
+
+
 def job_deatils(request, slug):
     job_deatils = Job.objects.get(slug=slug)
-    job = {'job' : job_deatils}
+
+    if request.method == 'POST':
+        pass
+    else:
+
+        form = ApplyForm()
+
+    job = {'job' : job_deatils, 'form': form}
+
+
     return render(request, 'job/job_details.html', job)

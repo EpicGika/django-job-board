@@ -23,7 +23,7 @@ class Job(models.Model):
     experince = models.IntegerField(default=1)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)    
     image = models.ImageField(upload_to='jobs/')
-    
+
     slug = models.SlugField(blank=True, null=True)
 
 
@@ -40,3 +40,18 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+class Apply(models.Model):
+    job = models.ForeignKey(Job, related_name='apply_job',on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=50)
+    email= models.EmailField(max_length=254)
+    website = models.URLField()
+    cv = models.FileField(upload_to='apply/')
+    cover_letter = models.TextField(max_length=500)
+    created_at = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.full_name
