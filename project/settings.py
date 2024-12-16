@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'home.apps.HomeConfig',
     'contact.apps.ContactConfig',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [

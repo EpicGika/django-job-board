@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+
 
 {% block body %}
 
@@ -54,8 +57,9 @@
                     </div>
                     <div class="apply_job_form white-bg">
                         <h4>Apply for the job</h4>
-                        <form action="#" method="POST">
-                            {{form}}
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
                             <button class="boxed-btn3 w-100" type="submit">Apply Now</button>
                         </form>
                     </div>
