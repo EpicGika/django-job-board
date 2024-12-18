@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 
 JOB_TYPE = (
     ('Full Time', 'Full-Time'),
@@ -12,7 +13,7 @@ class Job(models.Model):
     # - job type 
     # - job description 
     # - job summry (publishd_at - vacancy - salary - job 
-
+    owner = models.ForeignKey(User, related_name='job_owner',on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     # location = models
     job_type = models.CharField(max_length=50, choices=JOB_TYPE)
